@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import NavbarItem from "./NavbarItem";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import MenuOverlay from "./MenuOverlay";
+import Image from "next/image";
 
 const navbarItem = [
 	{
@@ -27,9 +28,15 @@ const Navbar = () => {
 			<div className=" flex flex-wrap item-center justify-between mx-auto px-4 py-4">
 				<Link
 					href={"/"}
-					className="text-2xl md:text-5xl text-white font-semibold"
+					className="text-2xl md:text-5xl text-white font-semibold "
 				>
-					Logo
+					<Image
+						src="/images/logo.png"
+						alt="logo"
+						width={80}
+						height={75}
+						className="fixed top-0  bg-transparent"
+					/>
 				</Link>
 				<div className="mobile-menu block md:hidden">
 					{!navbarOpen ? (
