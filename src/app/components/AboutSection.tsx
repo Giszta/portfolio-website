@@ -15,13 +15,13 @@ const TAB_DATA: TabDataItem[] = [
 		id: "skills",
 		content: (
 			<ul className="list-disc pl-2">
-				<li>asdbasfkas</li>
-				<li>asdbasfkas</li>
-				<li>asdbasfkas</li>
-				<li>asdbasfkas</li>
-				<li>asdbasfkas</li>
-				<li>asdbasfkas</li>
-				<li>asdbasfkas</li>
+				<li>HTML5</li>
+				<li>CSS3</li>
+				<li>JavaScript</li>
+				<li>Git</li>
+				<li>React</li>
+				<li>TypeScript</li>
+				<li>React Native</li>
 			</ul>
 		),
 	},
@@ -30,9 +30,8 @@ const TAB_DATA: TabDataItem[] = [
 		id: "education",
 		content: (
 			<ul className="list-disc pl-2">
-				<li>645446687</li>
-				<li>645446687</li>
-				<li>645446687</li>
+				<li>Bachelor of Engineering, Mechatronics</li>
+				<li>Master of Science Engineering, Mechanical Engineering</li>
 			</ul>
 		),
 	},
@@ -41,11 +40,7 @@ const TAB_DATA: TabDataItem[] = [
 		id: "certifications",
 		content: (
 			<ul className="list-disc pl-2">
-				<li>djkfbsdkjfnksa</li>
-				<li>djkfbsdkjfnksa</li>
-				<li>djkfbsdkjfnksa</li>
-				<li>djkfbsdkjfnksa</li>
-				<li>djkfbsdkjfnksa</li>
+				<li>ACERT B2</li>
 			</ul>
 		),
 	},
@@ -73,10 +68,15 @@ function AboutSection() {
 				<div className="mt-4 md:mt-0 text-left flex flex-col h-full">
 					<h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
 					<p className="text-base lg:text-lg">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
-						expedita totam repudiandae incidunt debitis, quo corporis voluptate
-						beatae quis harum itaque. Necessitatibus praesentium in provident
-						placeat corporis labore ratione perferendis!
+						My adventure with programming has started about a year ago and it
+						became my hobby. I spend most of my free evenings learning and
+						exploring front-end secrets. I am engineer oriented to gain
+						knowledge and new experience. Every missing piece of knowledge and
+						experience, I make up with great commitment and a desire to make
+						constant progress in my skills. Punctuality, diligence and respect
+						for the entrusted work are my strenghts. I believe my experience and
+						skills gained so far are strong base for further professional
+						development in your company.
 					</p>
 					<div className="flex flex-row justify-start mt-8">
 						<TabButton
