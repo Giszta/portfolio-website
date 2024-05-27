@@ -21,6 +21,11 @@ const config: Config = {
 			secondary: colors.blue,
 		},
 	},
+	variants: {
+		extend: {
+			scrollbar: ["hidden"],
+		},
+	},
 	plugins: [],
 };
 export default config;
