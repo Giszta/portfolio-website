@@ -5,7 +5,9 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Photo from "./Photo";
-
+import { FiDownload } from "react-icons/fi";
+import GithubIcon from "../../../public/github-icon.svg";
+import LinkedinIcon from "../../../public/linkedin-icon.svg";
 const HeroSection = () => {
 	return (
 		<section>
@@ -37,7 +39,7 @@ const HeroSection = () => {
 						learn more about my skills and experience. If you have any
 						questions, do not hesitate to get in touch with me.
 					</p>
-					<div>
+					<div className="">
 						<Link
 							href="/#contact"
 							className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
@@ -50,10 +52,20 @@ const HeroSection = () => {
 							download="/CV.pdf"
 							className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
 						>
-							<span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
-								Download CV
+							<span className="flex bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2 justify-center gap-2 items-center">
+								Download CV <FiDownload />
 							</span>
 						</Link>
+						<div className="inline-block px-1 py-1 align-middle sm:float-right">
+							<div className="socials flex flex-row gap-2 ">
+								<Link href="https://github.com/Giszta">
+									<Image src={GithubIcon} alt="Github Icon"></Image>
+								</Link>
+								<Link href="https://www.linkedin.com/in/adam-giszter/">
+									<Image src={LinkedinIcon} alt="Linkedin Icon"></Image>
+								</Link>
+							</div>
+						</div>
 					</div>
 				</motion.div>
 				<div className="order-1 xl:order-none mb-8 xl:mb-0 col-span-5">
