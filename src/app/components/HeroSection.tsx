@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
@@ -10,6 +10,14 @@ import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 
 const HeroSection = () => {
+	const [cvLink, setCvLink] = useState("");
+
+	useEffect(() => {
+		setTimeout(() => {
+			setCvLink("/CV.pdf");
+		}, 1000); // Opóźnienie, by utrudnić indeksowanie przez boty
+	}, []);
+
 	return (
 		<section>
 			<div className="grid xl:grid-cols-12 grid-cols-1 xl:gap-24">
@@ -57,19 +65,22 @@ const HeroSection = () => {
 								Hire Me
 							</Link>
 
-							<Link
-								href="/CV.pdf"
-								target="_blank"
-								download
-								className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white transition-transform duration-300 hover:scale-105 hover:brightness-110 "
-							>
-								<span className="flex bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2 justify-center gap-2 items-center">
-									Download CV <FiDownload />
-								</span>
-							</Link>
+							{cvLink && (
+								<a
+									href={cvLink}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white transition-transform duration-300 hover:scale-105 hover:brightness-110 "
+								>
+									<span className="flex bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2 justify-center gap-2 items-center">
+										Download CV <FiDownload />
+									</span>
+								</a>
+							)}
 							<div className="flex flex-row gap-4 justify-center sm:ml-auto">
 								<Link
 									className="transition-transform duration-300 hover:scale-125"
+									target="_blank"
 									href="https://github.com/Giszta"
 									aria-label="GitHub Profile"
 								>
@@ -77,6 +88,7 @@ const HeroSection = () => {
 								</Link>
 								<Link
 									href="https://www.linkedin.com/in/adam-giszter/"
+									target="_blank"
 									aria-label="LinkedIn Profile"
 									className="transition-transform duration-300 hover:scale-125"
 								>
