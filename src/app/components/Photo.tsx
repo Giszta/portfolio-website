@@ -17,7 +17,7 @@ const Photo = () => {
 					initial={{ opacity: 0 }}
 					animate={{
 						opacity: 1,
-						transition: { delay: 1, duration: 0.4, ease: "easeInOut" },
+						transition: { delay: 1.4, duration: 0.4, ease: "easeInOut" },
 					}}
 					className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-screen absolute
 					"
@@ -27,7 +27,7 @@ const Photo = () => {
 						priority
 						quality={100}
 						fill
-						alt=""
+						alt="My photo"
 						className="object-contain rounded-full"
 					></Image>
 				</motion.div>
