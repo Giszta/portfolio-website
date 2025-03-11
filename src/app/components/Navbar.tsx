@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NavbarItem from "./NavbarItem";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
@@ -7,25 +7,40 @@ import MenuOverlay from "./MenuOverlay";
 import Logo from "./Logo";
 
 const navbarItem = [
-	{
-		title: "About",
-		path: "#about",
-	},
-	{
-		title: "Projects",
-		path: "#projects",
-	},
-	{
-		title: "Contact",
-		path: "#contact",
-	},
+	{ title: "About", path: "#about" },
+	{ title: "Projects", path: "#projects" },
+	{ title: "Contact", path: "#contact" },
 ];
 
 const Navbar = () => {
 	const [navbarOpen, setNavbarOpen] = useState(false);
+	const menuRef = useRef<HTMLDivElement>(null);
+
+	const handleItemClick = () => {
+		setNavbarOpen(false);
+	};
+
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+				setNavbarOpen(false);
+			}
+		};
+
+		if (navbarOpen) {
+			document.addEventListener("mousedown", handleClickOutside);
+		} else {
+			document.removeEventListener("mousedown", handleClickOutside);
+		}
+
+		return () => document.removeEventListener("mousedown", handleClickOutside);
+	}, [navbarOpen]);
 
 	return (
-		<nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-50 bg-[#121212] bg-opacity-100 border-l-transparent border-r-transparent">
+		<nav
+			className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-50 bg-[#121212] bg-opacity-100"
+			aria-label="Główna nawigacja"
+		>
 			<div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
 				<motion.div
 					initial={{ opacity: 0 }}
@@ -49,14 +64,18 @@ const Navbar = () => {
 				</div>
 				<div className="menu hidden md:block md:w-auto" id="navbar">
 					<ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
-						{navbarItem.map((link, index) => (
+						{navbarItem.map((link) => (
 							<motion.li
-								key={index}
+								key={link.path}
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								transition={{ duration: 0.5, ease: "easeOut" }}
 							>
-								<NavbarItem href={link.path} title={link.title} />
+								<NavbarItem
+									href={link.path}
+									title={link.title}
+									onClick={handleItemClick}
+								/>
 							</motion.li>
 						))}
 					</ul>
@@ -65,13 +84,14 @@ const Navbar = () => {
 			<AnimatePresence>
 				{navbarOpen && (
 					<motion.div
+						ref={menuRef}
 						initial={{ height: 0, opacity: 0 }}
 						animate={{ height: "auto", opacity: 1 }}
 						exit={{ height: 0, opacity: 0 }}
 						transition={{ duration: 0.5, ease: "easeInOut" }}
 						className="overflow-hidden"
 					>
-						<MenuOverlay links={navbarItem} />
+						<MenuOverlay links={navbarItem} onItemClick={handleItemClick} />
 					</motion.div>
 				)}
 			</AnimatePresence>

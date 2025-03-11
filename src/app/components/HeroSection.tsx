@@ -15,8 +15,25 @@ const HeroSection = () => {
 	useEffect(() => {
 		setTimeout(() => {
 			setCvLink("/CV.pdf");
-		}, 1000); // Opóźnienie, by utrudnić indeksowanie przez boty
+		}, 1000);
 	}, []);
+
+	const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+		e.preventDefault();
+		const section = document.querySelector("#contact");
+
+		if (section) {
+			const navbarHeight = document.querySelector("nav")?.offsetHeight || 0; // Pobiera wysokość navbara
+			const sectionPosition =
+				section.getBoundingClientRect().top + window.scrollY; // Pozycja sekcji względem strony
+			const offset = 20; // Dodatkowy margines, aby tekst nie był zbyt blisko
+
+			window.scrollTo({
+				top: sectionPosition - navbarHeight - offset,
+				behavior: "smooth",
+			});
+		}
+	};
 
 	return (
 		<section>
@@ -58,12 +75,13 @@ const HeroSection = () => {
 						transition={{ duration: 0.6, delay: 0.4 }}
 					>
 						<div className="flex flex-col sm:flex-row sm:items-center gap-4">
-							<Link
+							<a
 								href="/#contact"
-								className="px-6 inline-block py-3 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-400 to-secondary-800 text-white text-center transition-transform duration-300 hover:scale-105 hover:brightness-110"
+								onClick={handleClick}
+								className="px-6 inline-block py-3 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-400 to-secondary-800 text-white text-center transition-transform duration-300 hover:scale-105 hover:brightness-110 cursor-pointer"
 							>
 								Hire Me
-							</Link>
+							</a>
 
 							{cvLink && (
 								<a
