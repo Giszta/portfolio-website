@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NavbarItem from "./NavbarItem";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
 import Logo from "./Logo";
 
@@ -38,10 +38,10 @@ const Navbar = () => {
 
 	return (
 		<nav
-			className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-50 bg-[#121212] bg-opacity-100"
+			className="fixed w-full border-[#33353F] border-b z-50 bg-[#121212]"
 			aria-label="Główna nawigacja"
 		>
-			<div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
+			<div className="container mx-auto flex flex-wrap items-center justify-between lg:py-4 px-4 py-2">
 				<motion.div
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
