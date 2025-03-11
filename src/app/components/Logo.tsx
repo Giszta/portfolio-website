@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Sign from "../../../public/images/logo2.png";
+import Sign from "../../../public/images/logo.png";
 
 function Logo() {
 	const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
