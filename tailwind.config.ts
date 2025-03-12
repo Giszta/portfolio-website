@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-const colors = require("tailwindcss/colors");
+import colors from "tailwindcss/colors";
 
 const config: Config = {
 	darkMode: ["class"],
@@ -23,16 +23,15 @@ const config: Config = {
 			primary: "var(--font-jetbrainsMono)",
 		},
 		extend: {
+			colors: {
+				primary: colors.blue, // poprawiona nazwa z `blue`
+				secondary: colors.blue, // poprawiona nazwa z `blue`
+			},
 			backgroundImage: {
 				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
 				"gradient-conic":
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 			},
-		},
-		colors: {
-			...colors,
-			primary: colors.blue,
-			secondary: colors.blue,
 		},
 	},
 	variants: {
@@ -42,4 +41,5 @@ const config: Config = {
 	},
 	plugins: [],
 };
+
 export default config;

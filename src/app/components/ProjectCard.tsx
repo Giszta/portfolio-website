@@ -13,7 +13,7 @@ interface ProjectCardProps {
 	technologies?: string[];
 }
 
-const techIcons: { [key: string]: JSX.Element } = {
+const techIcons: { [name: string]: JSX.Element } = {
 	NextJs: <SiNextdotjs className="text-white" />,
 	React: <FaReact className="text-blue-400" />,
 	Tailwind: <SiTailwindcss className="text-teal-400" />,
@@ -66,7 +66,9 @@ function ProjectCard({
 			</div>
 			{technologies.length > 0 && (
 				<div className="absolute bottom-2 right-2 flex gap-2 bg-[#181818] p-1 rounded-lg">
-					{technologies.map((tech) => techIcons[tech] || null)}
+					{technologies.map((tech, i) => (
+						<span key={i}>{techIcons[tech] || null}</span>
+					))}
 				</div>
 			)}
 		</div>

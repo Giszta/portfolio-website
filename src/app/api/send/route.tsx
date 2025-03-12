@@ -1,3 +1,4 @@
+// route.tsx
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
@@ -17,21 +18,21 @@ export async function POST(req: Request) {
 			);
 		}
 
-		console.log("Sending email:", { email, subject, message });
-
 		const data = await resend.emails.send({
 			from: fromEmail,
 			to: [toEmail, email],
 			subject: subject,
-			react: (
-				<>
-					<h1>{subject}</h1>
-					<p>Thank you for contacting me!</p>
-					<p>New message submitted:</p>
-					<p>{message}</p>
-				</>
-			),
+			html: `
+				<h1>${subject}</h1>
+				<p>Thank you for contacting me!</p>
+				<p><strong>New message submitted:</strong></p>
+				<p>${message}</p>
+			`,
 		});
+
+		if (!data || data.error) {
+			throw new Error("Email sending failed");
+		}
 
 		return NextResponse.json({
 			status: 200,
@@ -41,7 +42,7 @@ export async function POST(req: Request) {
 	} catch (error) {
 		console.error("Error sending email:", error);
 		return NextResponse.json(
-			{ status: 500, error: "Failed to send email" },
+			{ error: "Failed to send email" },
 			{ status: 500 }
 		);
 	}
