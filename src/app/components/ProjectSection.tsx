@@ -68,13 +68,15 @@ function ProjectSection() {
 			<ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
 				{projectData.map((project, index) => (
 					<motion.li
-						key={project.id}
+						key={index}
 						variants={cardVariants}
 						initial="initial"
 						animate={isInView ? "animate" : "initial"}
 						transition={{ duration: 0.3, delay: index * 0.4 }}
+						aria-label={`Project: ${project.title}`}
 					>
 						<ProjectCard
+							key={project.id}
 							title={project.title}
 							description={project.description}
 							imgUrl={project.image}

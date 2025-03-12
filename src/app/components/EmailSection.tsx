@@ -1,18 +1,17 @@
+// EmailSection.tsx
 "use client";
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import { Toaster, toast } from "react-hot-toast";
 
 const EmailSection = () => {
-	const [emailSubmitted, setEmailSubmitted] = useState(false);
-	const [errorMessage, setErrorMessage] = useState("");
+	const formRef = useRef<HTMLFormElement | null>(null);
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		setEmailSubmitted(false);
-		setErrorMessage("");
 
 		const formData = new FormData(e.currentTarget);
 		const data = {
@@ -21,23 +20,29 @@ const EmailSection = () => {
 			message: formData.get("message"),
 		};
 
+		if (!data.email || !data.subject || !data.message) {
+			toast.error("⚠️ Please fill in all fields before sending!");
+			return;
+		}
+
 		try {
 			const response = await fetch("/api/send", {
 				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
+				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify(data),
 			});
 
 			if (!response.ok) {
-				throw new Error("Failed to send email");
+				const result = await response.json();
+				throw new Error(
+					result.error || "Something went wrong. Try again later."
+				);
 			}
 
-			setEmailSubmitted(true);
-		} catch (error) {
-			console.error("Error sending email:", error);
-			setErrorMessage("Something went wrong. Please try again later.");
+			toast.success("Message sent successfully! I'll get back to you soon.");
+			formRef.current?.reset();
+		} catch (error: any) {
+			toast.error(`Oops! ${error.message}`);
 		}
 	};
 
@@ -46,6 +51,7 @@ const EmailSection = () => {
 			id="contact"
 			className="grid md:grid-cols-2 my-12 md:my-16 py-24 gap-4 relative"
 		>
+			<Toaster position="top-right" reverseOrder={false} />
 			<div className="absolute w-80 h-80 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full blur-lg top-full -left-4 transform -translate-x-1/2 -translate-y-2/3"></div>
 			<div className="z-10">
 				<h5 className="text-xl font-bold text-white my-2">
@@ -74,7 +80,7 @@ const EmailSection = () => {
 				</div>
 			</div>
 			<div>
-				<form className="flex flex-col" onSubmit={handleSubmit}>
+				<form ref={formRef} className="flex flex-col" onSubmit={handleSubmit}>
 					<div className="mb-6">
 						<label
 							htmlFor="email"
@@ -128,14 +134,6 @@ const EmailSection = () => {
 					>
 						Send Message
 					</button>
-					{emailSubmitted && (
-						<p className="text-green-500 text-sm mt-2">
-							Email sent successfully!
-						</p>
-					)}
-					{errorMessage && (
-						<p className="text-red-500 text-sm mt-2">{errorMessage}</p>
-					)}
 				</form>
 			</div>
 		</section>

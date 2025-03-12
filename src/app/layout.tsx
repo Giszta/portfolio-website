@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 const jetbrainsMono = JetBrains_Mono({
 	subsets: ["latin"],
@@ -20,7 +21,20 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="hide-scrollbar">
-			<body className={jetbrainsMono.variable}>{children}</body>
+			<body className={jetbrainsMono.variable}>
+				<Toaster
+					position="top-right"
+					toastOptions={{
+						style: {
+							background: "#1e1e2e",
+							color: "#fff",
+							borderRadius: "8px",
+							padding: "12px",
+						},
+					}}
+				/>
+				{children}
+			</body>
 		</html>
 	);
 }
