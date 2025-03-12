@@ -3,6 +3,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY as string);
 const fromEmail = process.env.FROM_EMAIL as string;
+const toEmail = process.env.TO_EMAIL as string;
 
 export async function POST(req: Request) {
 	try {
@@ -20,7 +21,7 @@ export async function POST(req: Request) {
 
 		const data = await resend.emails.send({
 			from: fromEmail,
-			to: [fromEmail, email],
+			to: [toEmail, email],
 			subject: subject,
 			react: (
 				<>
