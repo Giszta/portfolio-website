@@ -23,10 +23,10 @@ const HeroSection = () => {
 		const section = document.querySelector("#contact");
 
 		if (section) {
-			const navbarHeight = document.querySelector("nav")?.offsetHeight || 0; // Pobiera wysokość navbara
+			const navbarHeight = document.querySelector("nav")?.offsetHeight || 0; 
 			const sectionPosition =
-				section.getBoundingClientRect().top + window.scrollY; // Pozycja sekcji względem strony
-			const offset = 20; // Dodatkowy margines, aby tekst nie był zbyt blisko
+				section.getBoundingClientRect().top + window.scrollY; 
+			const offset = 20; 
 
 			window.scrollTo({
 				top: sectionPosition - navbarHeight - offset,
@@ -44,7 +44,7 @@ const HeroSection = () => {
 					transition={{ duration: 0.6, ease: "easeOut" }}
 					className="col-span-7 place-self-center text-center sm:text-left order-2 xl:order-none"
 				>
-					<h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold">
+					<h1 className="text-white mb-4 text-2xl sm:text-4xl lg:text-6xl font-extrabold">
 						<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-800">
 							Hello, I&apos;m
 						</span>
