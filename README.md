@@ -4,9 +4,10 @@
 
 This is my **personal portfolio website**, designed to showcase my projects, skills, and professional background. It serves as an interactive platform to provide insights into my work and experience.
 
-## 🎬 Demo
+## 🌍 Live Website
 
-🌍 Working live demo <a href="https://www.giszter.com/" target="_blank">here</a>
+You can visit the official portfolio website at:
+[🌐 https://www.giszter.com/](https://www.giszter.com/)
 
 ## 🚀 Features
 
