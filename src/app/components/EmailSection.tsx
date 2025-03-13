@@ -1,4 +1,3 @@
-// EmailSection.tsx
 "use client";
 import React, { useRef } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
@@ -39,10 +38,14 @@ const EmailSection = () => {
 				);
 			}
 
-			toast.success("Message sent successfully! I'll get back to you soon.");
+			toast.success("Message sent successfully! I'll get back to you soon.", {
+		duration: 3000,
+	});
 			formRef.current?.reset();
 		} catch (error: any) {
-			toast.error(`Oops! ${error.message}`);
+			toast.error(`Oops! ${error.message}`, {
+		duration: 3000,
+	});
 		}
 	};
 
