@@ -1,4 +1,4 @@
-# 🎨 Portfolio Website
+# 💼 Portfolio Website
 
 ## 📌 About the Project
 
@@ -7,7 +7,7 @@ This is my **personal portfolio website**, designed to showcase my projects, ski
 ## 🌍 Live Website
 
 You can visit the official portfolio website at:
-[🌐 https://www.giszter.com/](https://www.giszter.com/)
+<a href="https://www.giszter.com/" target="_blank">🌐 https://www.giszter.com/</a>
 
 ## 🚀 Features
 
