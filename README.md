@@ -30,4 +30,3 @@ Created by <a href="https://www.linkedin.com/in/adam-giszter/" target="_blank">A
 
 📩 Email: [a.m.giszter@gmail.com](mailto:a.m.giszter@gmail.com)  
 🔗 GitHub: [github.com/Giszta](https://github.com/Giszta)  
-
