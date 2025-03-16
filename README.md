@@ -1,5 +1,6 @@
 # 💼 Portfolio Website
 
+
 ## 📌 About the Project
 
 This is my **personal portfolio website**, designed to showcase my projects, skills, and professional background. It serves as an interactive platform to provide insights into my work and experience.
@@ -29,3 +30,4 @@ Created by <a href="https://www.linkedin.com/in/adam-giszter/" target="_blank">A
 
 📩 Email: [a.m.giszter@gmail.com](mailto:a.m.giszter@gmail.com)  
 🔗 GitHub: [github.com/Giszta](https://github.com/Giszta)  
+
