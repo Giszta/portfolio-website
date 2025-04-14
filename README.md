@@ -29,4 +29,4 @@ You can visit the official portfolio website at:
 Created by <a href="https://www.linkedin.com/in/adam-giszter/" target="_blank">Adam Giszter</a> - feel free to contact me!.
 
 📩 Email: [a.m.giszter@gmail.com](mailto:a.m.giszter@gmail.com)  
-🔗 GitHub: [github.com/Giszta](https://github.com/Giszta)  
+🔗 GitHub: [github.com/Giszta](https://github.com/Giszta)
