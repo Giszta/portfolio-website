@@ -10,7 +10,7 @@ const projectData = [
 		description: "Photo portfolio website",
 		image: "/images/projects/fotoroman.png",
 		gitUrl: "https://github.com/Giszta/photography-portfolio.git",
-		previewUrl: "https://photography-portfolio-jet.vercel.app/",
+		previewUrl: "https://www.fotoroman.pl/",
 		technologies: ["NextJs", "React", "Tailwind", "TypeScript"],
 	},
 	{
