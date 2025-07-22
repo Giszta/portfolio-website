@@ -41,7 +41,7 @@ function ProjectCard({
 					backgroundPosition: "center",
 				}}
 			>
-				<div className="hidden md:flex absolute top-0 left-0 w-full h-full items-center justify-center bg-[#181818] bg-opacity-80 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
+				<div className="hidden xl:flex absolute top-0 left-0 w-full h-full items-center justify-center bg-[#181818] bg-opacity-80 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
 					<Link
 						href={gitUrl}
 						target="_blank"
@@ -59,7 +59,7 @@ function ProjectCard({
 						<EyeIcon className="h-10 w-10 text-[#ADB7BE] hover:text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
 					</Link>
 				</div>
-				<div className="md:hidden absolute top-2 right-2 flex space-x-2">
+				<div className="xl:hidden absolute top-2 right-2 flex space-x-2">
 					<Link
 						href={gitUrl}
 						target="_blank"
