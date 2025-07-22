@@ -14,7 +14,9 @@ const HeroSection = () => {
 
 	useEffect(() => {
 		setTimeout(() => {
-			setCvLink("/CV.pdf");
+			setCvLink(
+				"/Adam Giszter - Engineer Who Codes - React TypeScript Next.js Tailwind ENG.pdf"
+			);
 		}, 1000);
 	}, []);
 
@@ -23,10 +25,10 @@ const HeroSection = () => {
 		const section = document.querySelector("#contact");
 
 		if (section) {
-			const navbarHeight = document.querySelector("nav")?.offsetHeight || 0; 
+			const navbarHeight = document.querySelector("nav")?.offsetHeight || 0;
 			const sectionPosition =
-				section.getBoundingClientRect().top + window.scrollY; 
-			const offset = 20; 
+				section.getBoundingClientRect().top + window.scrollY;
+			const offset = 20;
 
 			window.scrollTo({
 				top: sectionPosition - navbarHeight - offset,
@@ -44,16 +46,25 @@ const HeroSection = () => {
 					transition={{ duration: 0.6, ease: "easeOut" }}
 					className="col-span-7 place-self-center text-center sm:text-left order-2 xl:order-none"
 				>
-					<h1 className="text-white mb-4 text-2xl sm:text-4xl lg:text-6xl font-extrabold">
+					<h1 className="text-white mb-4 text-2xl sm:text-4xl lg:text-4xl font-extrabold">
 						<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-800">
 							Hello, I&apos;m
 						</span>
 						<br />
 						<span>A</span>
 						<TypeAnimation
-							sequence={["dam", 1500, " Web Developer", 1500]}
+							sequence={[
+								"dam",
+								1200,
+								" Design Engineer",
+								1200,
+								" Web Developer",
+								1200,
+								"n Engineer who codes",
+								1200,
+							]}
 							wrapper="span"
-							speed={40}
+							speed={80}
 							repeat={Infinity}
 						/>
 					</h1>
@@ -61,13 +72,15 @@ const HeroSection = () => {
 						initial={{ opacity: 0, y: 10 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.6, delay: 0.2 }}
-						className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl text-justify"
+						className="text-[#ADB7BE] text-base sm:text-lg  lg:text-xl mb-6 text-justify"
 					>
-						Welcome to my page. My name is Adam Giszter, and I am a Front-end
-						Developer. I am delighted to have you here and hope you find the
-						information you are looking for. Feel free to download my CV to
-						learn more about my skills and experience. If you have any
-						questions, do not hesitate to get in touch with me.
+						Welcome to my space on the web — where code meets design thinking.
+						I&nbsp;specialize in building intuitive, user-focused interfaces
+						using React and TypeScript. My roots are in mechanical engineering —
+						and I&nbsp;bring that same level of precision, structure, and
+						curiosity into every line of code I&nbsp;write. Feel free to
+						download my CV and reach out if you&apos;re looking for a developer
+						who combines logic, creativity, and real-world problem-solving.
 					</motion.p>
 					<motion.div
 						initial={{ opacity: 0, y: 10 }}

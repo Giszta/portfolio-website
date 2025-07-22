@@ -39,13 +39,13 @@ const EmailSection = () => {
 			}
 
 			toast.success("Message sent successfully! I'll get back to you soon.", {
-		duration: 3000,
-	});
+				duration: 3000,
+			});
 			formRef.current?.reset();
 		} catch (error: any) {
 			toast.error(`Oops! ${error.message}`, {
-		duration: 3000,
-	});
+				duration: 3000,
+			});
 		}
 	};
 
@@ -127,13 +127,13 @@ const EmailSection = () => {
 							name="message"
 							id="message"
 							required
-							className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+							className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 z-50"
 							placeholder="Let's talk about..."
 						/>
 					</div>
 					<button
 						type="submit"
-						className="bg-primary-500 hover:bg-secondary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+						className="bg-primary-500 hover:bg-secondary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full z-50"
 					>
 						Send Message
 					</button>
