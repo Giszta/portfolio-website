@@ -9,6 +9,7 @@ import Logo from "./Logo";
 const navbarItem = [
 	{ title: "About", path: "#about" },
 	{ title: "Projects", path: "#projects" },
+	{ title: "Why Me?", path: "#why-me" },
 	{ title: "Contact", path: "#contact" },
 ];
 
