@@ -1,8 +1,10 @@
 import React from "react";
 import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { FaReact, FaHtml5, FaCss3, FaJs } from "react-icons/fa";
-import { SiNextdotjs, SiTypescript, SiTailwindcss } from "react-icons/si";
+import { FaReact, FaHtml5, FaCss3, FaJs,  } from "react-icons/fa";
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiVuedotjs, SiVite } from "react-icons/si";
+
+
 
 interface ProjectCardProps {
 	imgUrl: string;
@@ -21,6 +23,8 @@ const techIcons: { [name: string]: JSX.Element } = {
 	HTML5: <FaHtml5 className="text-orange-500" />,
 	CSS3: <FaCss3 className="text-blue-500" />,
 	JavaScript: <FaJs className="text-yellow-400" />,
+	Vue: <SiVuedotjs className="text-green-500" />,
+	Vite: <SiVite className="text-purple-500" />,
 };
 
 function ProjectCard({
@@ -32,7 +36,7 @@ function ProjectCard({
 	technologies = [],
 }: ProjectCardProps) {
 	return (
-		<div className="relative">
+		<div className="relative flex flex-col h-full">
 			<div
 				className="group rounded-t-xl h-52 md:h-72 relative overflow-hidden "
 				style={{
@@ -78,9 +82,9 @@ function ProjectCard({
 					</Link>
 				</div>
 			</div>
-			<div className="text-white rounded-b-xl  bg-[#181818] py-6 px-4">
+			<div className="text-white rounded-b-xl bg-[#181818] py-6 px-4 flex flex-col flex-grow">
 				<h5 className="text-lg font-semibold ">{title}</h5>
-				<p className="text-[#ADB7BE] pb-3">{description}</p>
+				<p className="text-[#ADB7BE] pb-3 flex-grow">{description}</p>
 			</div>
 			{technologies.length > 0 && (
 				<div className="absolute bottom-2 right-2 flex gap-2 bg-[#181818] p-1 rounded-lg">
